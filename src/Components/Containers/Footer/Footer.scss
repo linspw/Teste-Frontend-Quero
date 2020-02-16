@@ -1,0 +1,35 @@
+@import '../../Elements/Colors/Colors.scss';
+$primary-blue: map-get($colorsNew, primary-blue);
+$secundary-blue: map-get($colorsNew, secundary-blue);
+
+
+.App > .UX-Footer{
+    position: relative; 
+    overflow: hidden;
+}
+    .App > .UX-Footer > .UX-Footer-Group{
+        position: relative; display: flex; flex-direction: row;
+        height: 8em; width: 100%; align-items: center; justify-content: space-around; color: white;
+    }
+        .App > .UX-Footer > .UX-Footer-Group.blue{
+            background-color: #{$primary-blue};
+        }
+        .App > .UX-Footer > .UX-Footer-Group.darkBlue{
+            background-color: #{$secundary-blue};
+        }
+    .UX-Footer-Group > .UX-Footer-SubGroup{
+        display: flex; flex-direction: row; justify-content: center; align-items: center;
+    }
+        .UX-Footer-Group > .UX-Footer-SubGroup > .icon{
+            font-size: 34px;
+        }
+        .UX-Footer-Group > .UX-Footer-SubGroup > .UX-Footer-SubGroup-Text{
+            display: flex; flex-direction: column; margin: {left: 1em;};
+        }
+            .UX-Footer-Group > .UX-Footer-SubGroup > .UX-Footer-SubGroup-Text span.normal{
+                font-size: 14px;
+
+            }
+            .UX-Footer-Group > .UX-Footer-SubGroup > .UX-Footer-SubGroup-Text span.bold{
+                font-weight: 550;
+            }

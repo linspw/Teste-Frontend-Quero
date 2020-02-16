@@ -1,0 +1,86 @@
+@import '../../Elements/Colors/Colors.scss';
+$primary-blue: map-get($colorsNew, primary-blue);
+$secundary-blue: map-get($colorsNew, secundary-blue);
+$black: map-get($colorsNew, black);
+
+
+.App > .UX-MainContent{
+    display: block; position: relative;
+    overflow-x: hidden;
+    background-color: ghostwhite;
+    min-height: calc(100% - 6.75em);
+    width: 100%;
+}
+    .UX-MainContent > .UX-MainContent-Item{
+        position: relative;
+        width: auto;
+        margin: {left: 6em; right: 6em;};
+        &.CategoryWrapper{
+            height: 3em;
+            padding: {top: 1em; bottom: 1em;};
+            & > a{
+                padding: 10px;
+                color: #{$primary-blue};
+                font-weight: 600;
+                &.active{
+                    color: #{$black};
+                }
+            }
+        }
+        &.TitleWrapper{
+            min-height: 3em;
+            padding: 10px; display: flex; flex-direction: column; 
+            color: #{$black};
+            & > span.title{
+                font-weight: 600;
+                font-size: 34px;
+            }
+            & > span.subtitle{
+                margin-top: 0.75em;
+                font-weight: 500;
+                font-size: 14px;
+            }
+        }
+        &.SwitchWrapper{
+            min-height: auto; margin-top: 1em;
+            padding: 10px; display: flex; justify-content: flex-end;
+            & > .SwitchBar{
+                width: 35em;
+                height: 2em; 
+                display: flex; flex-direction: row;
+                & > button.Element{
+                    flex: 1;
+                    color: #{$secundary-blue}; background-color: white;
+                    font-weight: 500;
+                    border: 1px solid #{$primary-blue}; margin:-1px 0 0 -1px;
+                    &:hover{
+                        border: 2px solid #{$primary-blue};
+                        background-color: white;
+                        color: #{$secundary-blue};
+                    }
+                    &.active{
+                        border: 1px solid #{$primary-blue};
+                        color: white; background-color: #{$secundary-blue}; 
+                    }
+                }
+                & > :first-child{
+                    border-radius: 8px 0px 0px 8px;
+                }
+                & > :last-child{
+                    border-radius: 0px 8px 8px 0px;
+                }
+                
+            }
+        }
+        &.OffersWrapper{
+            min-height: auto; margin-top: 1em; padding: 10px; 
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            
+            & > :first-child{
+                margin-left: 0em;
+            }
+        }
+    }

@@ -1,0 +1,71 @@
+@font-face{
+	font-family: 'Proxima_Nova-Regular';
+	src: url('./Font/Proxima_Nova/Proxima_Nova_Regular.otf');
+}
+@font-face{
+	font-family: 'Proxima_Nova-Bold';
+	src: url('./Font/Proxima_Nova/Proxima_Nova_Bold.otf');
+}
+*{
+    margin: 0; box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+body{
+	font-family: 'Proxima_Nova-Regular';
+}
+
+a:link, a:hover, a:visited{
+	text-decoration: none;
+	color: inherit;
+}
+a:active{
+	opacity: 0.8;
+}
+::-webkit-scrollbar
+{
+	width: 6px !important;
+	height: 6px !important;
+}
+	::-webkit-scrollbar-track-piece  {
+		-webkit-tap-highlight-color: transparent;
+	}
+	::-webkit-scrollbar-thumb:vertical{
+		height: 4px;
+		background-color: #073054;
+		border-radius:2px;
+	}
+	::-webkit-scrollbar-thumb:horizontal{
+		height: 4px;
+		background-color: #073054;
+		border-radius:2px;
+    }
+    
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+    font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	&:hover{
+		opacity: 0.9;
+	}
+	&:active{
+		opacity: 0.5;
+	}
+}
+	button:disabled,
+	button[disabled]{
+	  border: 1px solid #999999;
+	  background-color: #cccccc;
+	  color: #666666;
+	  cursor: not-allowed;
+	  
+    }
+    .App{
+        position: absolute;
+		width: 100%;
+		overflow: auto;
+        height: 100%;
+    }

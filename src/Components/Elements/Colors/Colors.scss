@@ -1,0 +1,29 @@
+$colorsOld:(
+    primary-blue: #18ACC4,
+    secundary-blue: #007A8D,
+    primary-yellow: #FDCB13,
+    secundary-yellow: #DE9E1F,
+    green: #0FA866,
+    black: #1F2D30,
+    grey: #FBFBFB,
+    opacity: rgba(31, 45, 48, 0.88)
+);
+$colorsNew:(
+    primary-blue: #304ffe,
+    secundary-blue: #4253c0,
+    primary-yellow: #FDCB13,
+    secundary-yellow: #DE9E1F,
+    green: #33d670,
+    black: #1F2D30,
+    grey: #FBFBFB,
+    opacity: rgba(31, 45, 48, 0.88)
+);
+
+@each $theme, $color in $colorsNew{
+    .theme-cl-serious-#{$theme}{
+        color: #{$color}
+    }
+    .theme-bg-serious-#{$theme}{
+        color: #{$color}
+    }
+}
