@@ -1,0 +1,16 @@
+ul.UX-List{
+    list-style-type: none;
+    padding{
+        top: 4px;
+        bottom: 4px;
+    };
+    padding-inline-start: 0px;
+}   
+    ul.UX-List.expand{
+        width: 100%;
+    }
+
+    ul.UX-List > li.UX-ListItem{
+        padding: 10px;
+        border-bottom: 1px solid #dedede;
+    }

@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './Components/Containers/Header';
 import Footer from './Components/Containers/Footer';
 import MainContent from './Components/Containers/MainContent';
+import Modal from './Components/Containers/Modal';
+import './Components/Elements/Input/Input.scss';
 
 class App extends React.Component{
   render(){
@@ -10,6 +12,7 @@ class App extends React.Component{
         <Header/>
         <MainContent/>
         <Footer/>
+        <Modal/>
       </div>
     );
   }

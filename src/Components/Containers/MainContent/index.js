@@ -1,9 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as InterfaceActions from '../../../Redux/Actions/interfaceActions';
 import './MainContent.scss';
 import Card from '../../Elements/Card';
 
 
 class MainContent extends React.Component{
+    constructor(props){
+        super(props);
+        console.log("Props:",props);
+        this.state = {
+            favorites: this.props.favorites
+        }
+
+    }
+    componentDidUpdate = async (prevProps) => {
+        if (this.props.favorites !== prevProps.favorites) {
+            await this.setState({...this.state, favorites: this.props.favorites});
+            console.log(this.props.favorites)
+        }
+    }
     render(){
         return (
             <div className="UX-MainContent">
@@ -23,15 +39,24 @@ class MainContent extends React.Component{
                 </div>
                 <div className="UX-MainContent-Item OffersWrapper">
                     <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-
+                    {this.state.favorites?(
+                        this.state.favorites.map((e,i)=>{
+                            return (<Card key={i} value={e}/>)
+                        }
+                    )):null}
                 </div>
             </div>
         );
     }
 }
 
-export default MainContent;
+const mapStateToProps = store => {
+    return {
+        favorites: store.OffersState.favorites
+    }
+}
+const mapDispatchToProps = {
+    ...InterfaceActions
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MainContent);

@@ -1,0 +1,138 @@
+@import '../../Elements/Colors/Colors.scss';
+$primary-blue: map-get($colorsNew, primary-blue);
+$secundary-blue: map-get($colorsNew, secundary-blue);
+$opacity: map-get($colorsNew, $key: opacity);
+$greycolor: map-get($colorsNew, grey);
+$green: map-get($colorsOld, green);
+
+.App > .UX-Modal{
+    position: fixed; height: 100%; width: 100%; top: 0;
+    z-index: 1000; background-color: #{$opacity};
+    display: flex; align-items: center; justify-content: center;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+    
+    & > form.ModalWrapper{
+        height: 80%; min-width: 45%; max-width: 100%;
+        background-color: white;
+        position: relative; z-index: 1200;
+        & > button.Close{
+            position: absolute;
+            right: 0; top:-26px;
+            color: white; font-size: 26px; z-index: 10;
+        }
+        & > fieldset{
+            padding: 0;
+            margin: 2.5em;
+            border: 0;
+            &.TitleArea{
+                display: flex; flex-direction: column;
+                & > span.title{
+                    font-weight: 600;
+                    font-size: 24px;
+                }
+                & > span.subtitle{
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+            &.FilterArea{
+                display: flex; flex-direction: column; position: relative;
+                margin-bottom: 10px;
+                & .Group{
+                    display: flex; flex-direction: wrap; width: 100%;
+                    justify-content: space-between;
+                    & .SubGroup{
+                        display: flex; flex-direction: column; width: 100%;
+                        padding: {top:10px; bottom: 10px;}; min-height: fit-content;
+                        &.horizontal{
+                            flex-direction: row;
+                        }
+                        & > .CheckBox{
+                            display: flex; justify-content: flex-start; align-items: center;
+                            padding: 10px; height: fit-content;
+                            & > *{
+                                margin-right: 14px;
+                            }
+                        }
+                        & > .Range{
+                            display: flex; flex-direction: column;
+                            padding: {bottom: 10px;};
+                        }
+                    }
+                    &.vertical{
+                        flex-direction: column;
+                    }
+                }
+                & label{
+                    &.Title{
+                        font-weight: bold;
+                    }
+                }
+            }
+            &.ResultArea{
+                margin-top: 5px;
+                margin-bottom: 0;
+                max-height: 45%; overflow-y: auto;
+                & > legend{
+                    display: flex; justify-content: space-between;
+                    font-weight: 600; width: 100%;
+                    border-bottom: 1px solid rgb(214, 214, 214); padding-bottom: 15px;
+                    & > .Title{
+
+                    }
+                    & > .OderFilter{
+
+                    }
+                }
+                & > .UX-Result{
+                    
+                    & .UX-Line{
+                        display: flex; flex-direction: row; height: 2.5em; overflow: hidden; font-size: 14px; align-items: center; 
+                        & > div{
+                            display: flex; flex-direction: column;
+                        }
+                        & > img{
+                            margin-left: 36px; height: 100%;
+                        }
+                        & > .description{
+                            flex: 3; margin-left: 30px; 
+                            & span{
+                                color: #{$primary-blue};
+                                font-weight: 600;
+                            }
+                        }
+                        & > .price{
+                            flex: 1;
+                            & span{
+                                color: #{$green};
+                                font-weight: 600;
+                            }
+                        }
+                        & > .chk-course{
+                        }
+                    }
+                }
+            }
+            &.CommandsArea{
+                position: absolute;
+                bottom: 0; right: 0;
+                margin: 0; padding: 20px;
+                & > *{
+                    margin: {left: 10px; right: 10px;};
+                }
+               
+            }
+        }
+
+
+    }
+}
+
+@keyframes fadeInOpacity{
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}

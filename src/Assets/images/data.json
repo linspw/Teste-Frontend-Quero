@@ -1,0 +1,140 @@
+[
+    {
+        "full_price": 1000,
+        "price_with_discount": 698,
+        "discount_percentage": 30.20,
+        "start_date": "19/02/2020",
+        "enrollment_semester": "2020.1",
+        "enabled": true,
+        "course": {
+            "name": "Engenharia da computação",
+            "kind": "Presencial",
+            "level": "Bacharelado (graduação)",
+            "shift": "Noite"
+        },
+        "university": {
+            "name": "Anhanguera",
+            "score": 1000,
+            "logo_url": "/anhanguera.png"
+        },
+        "campus": {
+            "name": "Morumbi",
+            "city": "São José dos Campos"
+        }
+    },
+    {
+        "full_price": 1000,
+        "price_with_discount": 698,
+        "discount_percentage": 30.20,
+        "start_date": "19/02/2020",
+        "enrollment_semester": "2020.1",
+        "enabled": true,
+        "course": {
+            "name": "Engenharia da computação",
+            "kind": "Presencial",
+            "level": "Bacharelado (graduação)",
+            "shift": "Noite"
+        },
+        "university": {
+            "name": "Anhanguera",
+            "score": 1000,
+            "logo_url": "/anhanguera.png"
+        },
+        "campus": {
+            "name": "Morumbi",
+            "city": "São José dos Campos"
+        }
+    },
+    {
+        "full_price": 1000,
+        "price_with_discount": 698,
+        "discount_percentage": 30.20,
+        "start_date": "19/02/2020",
+        "enrollment_semester": "2020.1",
+        "enabled": true,
+        "course": {
+            "name": "Engenharia da computação",
+            "kind": "Presencial",
+            "level": "Bacharelado (graduação)",
+            "shift": "Noite"
+        },
+        "university": {
+            "name": "Anhanguera",
+            "score": 1000,
+            "logo_url": "/anhanguera.png"
+        },
+        "campus": {
+            "name": "Morumbi",
+            "city": "São José dos Campos"
+        }
+    },
+    {
+        "full_price": 1000,
+        "price_with_discount": 698,
+        "discount_percentage": 30.20,
+        "start_date": "19/02/2020",
+        "enrollment_semester": "2020.1",
+        "enabled": true,
+        "course": {
+            "name": "Engenharia da computação",
+            "kind": "Presencial",
+            "level": "Bacharelado (graduação)",
+            "shift": "Noite"
+        },
+        "university": {
+            "name": "Anhanguera",
+            "score": 1000,
+            "logo_url": "/anhanguera.png"
+        },
+        "campus": {
+            "name": "Morumbi",
+            "city": "São José dos Campos"
+        }
+    },
+    {
+        "full_price": 1000,
+        "price_with_discount": 698,
+        "discount_percentage": 30.20,
+        "start_date": "19/02/2020",
+        "enrollment_semester": "2020.1",
+        "enabled": true,
+        "course": {
+            "name": "Engenharia da computação",
+            "kind": "Presencial",
+            "level": "Bacharelado (graduação)",
+            "shift": "Noite"
+        },
+        "university": {
+            "name": "Anhanguera",
+            "score": 1000,
+            "logo_url": "/anhanguera.png"
+        },
+        "campus": {
+            "name": "Morumbi",
+            "city": "São José dos Campos"
+        }
+    },
+    {
+        "full_price": 1000,
+        "price_with_discount": 698,
+        "discount_percentage": 30.20,
+        "start_date": "19/02/2020",
+        "enrollment_semester": "2020.1",
+        "enabled": true,
+        "course": {
+            "name": "Engenharia da computação",
+            "kind": "Presencial",
+            "level": "Bacharelado (graduação)",
+            "shift": "Noite"
+        },
+        "university": {
+            "name": "Anhanguera",
+            "score": 1000,
+            "logo_url": "/anhanguera.png"
+        },
+        "campus": {
+            "name": "Morumbi",
+            "city": "São José dos Campos"
+        }
+    }
+]

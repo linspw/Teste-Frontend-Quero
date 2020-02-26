@@ -5,7 +5,7 @@ $colorsOld:(
     secundary-yellow: #DE9E1F,
     green: #0FA866,
     black: #1F2D30,
-    grey: #FBFBFB,
+    grey: rgb(233, 231, 231),
     opacity: rgba(31, 45, 48, 0.88)
 );
 $colorsNew:(
@@ -13,17 +13,11 @@ $colorsNew:(
     secundary-blue: #4253c0,
     primary-yellow: #FDCB13,
     secundary-yellow: #DE9E1F,
+    main-background: #f8f8ff,
     green: #33d670,
     black: #1F2D30,
-    grey: #FBFBFB,
+    grey: rgb(233, 231, 231),
+    secundary-grey: rgb(172, 172, 172),
     opacity: rgba(31, 45, 48, 0.88)
 );
-
-@each $theme, $color in $colorsNew{
-    .theme-cl-serious-#{$theme}{
-        color: #{$color}
-    }
-    .theme-bg-serious-#{$theme}{
-        color: #{$color}
-    }
-}
+$theme: $colorsNew;

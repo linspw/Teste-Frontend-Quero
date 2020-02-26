@@ -1,0 +1,36 @@
+@import '../Colors/Colors.scss';
+@import '../../Elements/Colors/Colors.scss';
+$primary-blue: map-get($colorsNew, primary-blue);
+$secundary-blue: map-get($colorsNew, secundary-blue);
+$primary-yellow: map-get($colorsNew, primary-yellow);
+$secundary-yellow: map-get($colorsNew, secundary-yellow);
+$black: map-get($colorsNew, black);
+$grey: map-get($colorsNew, grey);
+$secundary-grey: map-get($colorsNew, secundary-grey);
+
+
+
+
+
+button.UX-Button{
+    padding: {top:10px; bottom: 10px; left:14px; right: 14px;}; font-weight: 600; border-radius: 4px; min-width: 4.5em;
+    &.Primary-Yellow{
+        background-color: #{$primary-yellow};
+        color: #{$black};
+        border: 1px solid #{$secundary-yellow};;
+    }
+    &.Secundary-Yellow{
+        background-color: #{$secundary-yellow};
+        color: #{$black};
+    }
+    &.Primary-Blue{
+        background-color: white;
+        color: #{$primary-blue};
+        border: 1px solid #{$primary-blue};;
+    }
+    &:disabled{
+        color: #{$secundary-grey};
+        background-color: #{$grey};
+        border: 1px solid #{$secundary-grey};
+    }
+}
