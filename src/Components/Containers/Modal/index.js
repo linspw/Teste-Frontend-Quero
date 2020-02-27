@@ -7,24 +7,22 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { List, ListItem } from '../../Elements/List';
 import Button from '../../Elements/Button';
 import Select from '../../Elements/Select';
-import image from '../../../Assets/images/anhanguera.png';
 import './Modal.scss';
 
 
 class Modal extends React.Component{
     constructor(props){
         super(props);
-        console.log(props)
         this.state = {
             Modal: props.Modal,
             toogleStatusModal: props.toogleStatusModal,
             addOffersFavorite: props.addOffersFavorite,
             data: [false, false, false, false, false],
             cities: null,
-            courses:null,
-            Form:{
+            courses: null,
+            form:{
                 Range: 10000,
-                Type: {EaD: true, Presencial: true},
+                Type: { EaD: true, Presencial: true },
                 course: null,
                 city: null,
                 sort: "university"
@@ -46,28 +44,27 @@ class Modal extends React.Component{
             courses.unshift(null);
             cities.unshift(null);
         }
-        await this.setState({...this.state, cities, courses, Form:{...this.state.Form, city:cities[0], course:courses[0]}, data: array});
-
+        await this.setState({...this.state, cities, courses, form:{...this.state.form, city:cities[0], course:courses[0]}, data: array});
     }
     applyFilter = (array) =>{
         array = array.filter((e)=>{
-            if(!((e.campus.city === this.state.Form.city) || (this.state.Form.city === null))){
+            if(!((e.campus.city === this.state.form.city) || (this.state.form.city === null))){
                 console.log("1º")
                 return false;
             }
-            if(!((e.course.name === this.state.Form.course) || (this.state.Form.course === null))){
+            if(!((e.course.name === this.state.form.course) || (this.state.form.course === null))){
                 console.log("2º")
                 return false;
             }
-            if(!(e.price_with_discount <= this.state.Form.Range)){
+            if(!(e.price_with_discount <= this.state.form.Range)){
                 console.log("3º")
                 return false;
             }
-            if(!this.state.Form.Type.EaD && e.course.kind === "EaD"){
+            if(!this.state.form.Type.EaD && e.course.kind === "EaD"){
                 console.log("4º")
                 return false;
             }
-            if(!this.state.Form.Type.Presencial && e.course.kind === "Presencial"){
+            if(!this.state.form.Type.Presencial && e.course.kind === "Presencial"){
                 console.log("5º")
                 return false;
             }
@@ -77,19 +74,18 @@ class Modal extends React.Component{
     }
     applySort = (array) =>{
         array = array.slice(0);
-        if(this.state.Form.sort === "university"){
-            array.sort((a, b) => a.university.name.localeCompare(b.university.name))
+        switch (this.state.form.sort){
+            case 'university':
+                return array.sort((a, b) => a.university.name.localeCompare(b.university.name));
+            case 'course':
+                return array.sort((a, b) => a.course.name.localeCompare(b.course.name));
+            case 'lowest_price':
+                return array.sort((a, b) => a.price_with_discount - b.price_with_discount);
+            case 'biggest_price':
+                return array.sort((a, b) => b.price_with_discount - a.price_with_discount);
+            default:
+                return array;
         }
-        else if(this.state.Form.sort === "course"){
-            array.sort((a, b) => a.course.name.localeCompare(b.course.name))
-        }
-        else if(this.state.Form.sort === "lowest_price"){
-            array.sort((a, b) => a.price_with_discount - b.price_with_discount)
-        }
-        else if(this.state.Form.sort === "biggest_price"){
-            array.sort((a, b) => b.price_with_discount - a.price_with_discount)
-        }
-        return array;
     }
     handleRequest = async () =>{
         let result = false;
@@ -110,37 +106,32 @@ class Modal extends React.Component{
         //console.log(e.target.elements);
     }
     handleRangeInput = (Range) =>{
-        this.setState({...this.state, Form:{...this.state.Form, Range}});
+        this.setState({...this.state, form:{...this.state.form, Range}});
         this.changeResult()
     }
     handleCitySelect = (city) =>{
-        this.setState({...this.state, Form:{...this.state.Form, city: city===""?null:city}});
+        this.setState({...this.state, form:{...this.state.form, city: city===""?null:city}});
         this.changeResult()
     }
     handleCourseSelect = (course) =>{
-        this.setState({...this.state, Form:{...this.state.Form, course: course===""?null:course}});
+        this.setState({...this.state, form:{...this.state.form, course: course===""?null:course}});
         this.changeResult()
     }
     handleSortSelect = (sort) =>{
-        this.setState({...this.state, Form:{...this.state.Form, sort}});
+        this.setState({...this.state, form:{...this.state.form, sort}});
         this.changeResult()
     }
     handleCheckBoxEaD = (e) =>{
-        this.setState({...this.state, Form:{...this.state.Form, Type:{...this.state.Form.Type, EaD: e}}})
+        this.setState({...this.state, form:{...this.state.form, Type:{...this.state.form.Type, EaD: e}}})
         this.changeResult()
     }
     handleCheckBoxPresencial = (e) =>{
-        this.setState({...this.state, Form:{...this.state.Form, Type:{...this.state.Form.Type, Presencial: e}}})
+        this.setState({...this.state, form:{...this.state.form, Type:{...this.state.form.Type, Presencial: e}}})
         this.changeResult()
     }
-    toogleChart = (e) =>{
-        let index = this.state.chartList.indexOf(e);
-        if(index>=0){
-            this.state.chartList.splice(index, 1);
-        }
-        else{
-            this.state.chartList.push(e);
-        }        
+    toogleChart = (e, data) =>{
+        let index = this.state.chartList.indexOf(data);
+        (index>=0)?this.state.chartList.splice(index, 1):this.state.chartList.push(data);
         if(this.state.chartList.length<=1){
             this.forceUpdate()
         }
@@ -152,18 +143,17 @@ class Modal extends React.Component{
         await this.setState({...this.state, data: array, chartList: []})
     }
     render(){
-        if(this.state.Modal.status === true){
             return (
-                <div className="UX-Modal">
-                    <form className="ModalWrapper" onSubmit={this.handleSubmit}>
-                        <button className="Close" onClick={()=>this.handleModalStatus()}><FontAwesomeIcon icon={faTimes}/></button>
-                        <fieldset className="TitleArea">
+                <div className="modal">
+                    <form className="modal__wrapper">
+                        <button className="modal__button--close" onClick={()=>this.handleModalStatus()}><FontAwesomeIcon icon={faTimes}/></button>
+                        <fieldset className="modal__fieldset--title">
                             <span className="title">Adicionar bolsa</span>
                             <span className="subtitle">Fitlre e adicione as bolsas de seu interesse</span>
                         </fieldset>
-                        <fieldset className="FilterArea">
-                            <div className="Group">
-                                <div className="SubGroup">
+                        <fieldset className="modal__fieldset--filter">
+                            <div className="modal__fieldset__group">
+                                <div className="modal__fieldset__subgroup">
                                     <label htmlFor="city" className="Title">Selecione sua cidade</label>
                                     <Select id="city" semifull onChange={(e)=>this.handleCitySelect(e.target.value)}>
                                         {this.state.cities?(
@@ -173,7 +163,7 @@ class Modal extends React.Component{
                                             )):<option value=""></option>}
                                     </Select>
                                 </div>
-                                <div className="SubGroup">
+                                <div className="modal__fieldset__subgroup">
                                     <label htmlFor="course" className="Title">Selecione o cursos de sua preferência</label>
                                     <Select id="course" semifull onChange={(e)=>{this.handleCourseSelect(e.target.value)}}>
                                         {this.state.courses?(
@@ -184,29 +174,29 @@ class Modal extends React.Component{
                                     </Select>
                                 </div>
                             </div>
-                            <div className="Group">
-                                <div className="SubGroup">
+                            <div className="modal__fieldset__group">
+                                <div className="modal__fieldset__subgroup">
                                     <label className="Title">Como você quer estudar?</label>
-                                    <div className="CheckBox">
-                                        <input type="checkbox" id="kind1" name="kind1" value="Presencial" defaultChecked={this.state.Form.Type.Presencial} onChange={(e)=>this.handleCheckBoxPresencial(e.target.checked)}/> 
+                                    <div className="modal__fieldset__subgroup__check-box">
+                                        <input type="checkbox" id="kind1" name="kind1" value="Presencial" defaultChecked={this.state.form.Type.Presencial} onChange={(e)=>this.handleCheckBoxPresencial(e.target.checked)}/> 
                                         <label htmlFor="kind1">Presencial</label>
-                                        <input type="checkbox" id="kind2" name="kind2" value="EaD" defaultChecked={this.state.Form.Type.EaD} onChange={(e)=>this.handleCheckBoxEaD(e.target.checked)}/>
+                                        <input type="checkbox" id="kind2" name="kind2" value="EaD" defaultChecked={this.state.form.Type.EaD} onChange={(e)=>this.handleCheckBoxEaD(e.target.checked)}/>
                                         <label htmlFor="kind2">EaD</label>
                                     </div>
                                 </div>
-                                <div className="SubGroup">     
+                                <div className="modal__fieldset__subgroup">     
                                     <label className="Title">Até quanto você pode pagar?</label>
-                                    <div className="Range">
-                                        <label htmlFor="price">R$ {new Intl.NumberFormat().format(this.state.Form.Range)}</label>
-                                        <input id="price" type="range" min="0" max="10000" step="50" value={this.state.Form.Range} onChange={(e)=>this.handleRangeInput(e.target.value)}/>
+                                    <div className="modal__fieldset__subgroup__range">
+                                        <label htmlFor="price">R$ {new Intl.NumberFormat().format(this.state.form.Range)}</label>
+                                        <input id="price" type="range" min="0" max="10000" step="50" value={this.state.form.Range} onChange={(e)=>this.handleRangeInput(e.target.value)}/>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset className="ResultArea">
+                        <fieldset className="modal__fieldset--result">
                             <legend>
-                                <span className="Title">Resultado:</span>
-                                <span className="OderFilter">Ordernar por 
+                                <span className="modal__fieldset__legend--title">Resultado:</span>
+                                <span className="modal__fieldset__legend--oder-filter">Ordernar por 
                                     <Select onChange={(e)=>this.handleSortSelect(e.target.value)} inline>
                                         <option value="university">Nome da Faculdade</option>
                                         <option value="course">Nome do Curso</option>
@@ -215,19 +205,20 @@ class Modal extends React.Component{
                                     </Select>
                                 </span>
                             </legend>
-                            <div className="UX-Result">
+                            <div className="modal__fieldset__wrapper-result">
                                 <List>
                                     {this.state.data?(
                                         this.state.data.map((e,i)=>{
-                                            const name = e.course?e.course.name:null;
+                                            const name = e.course?(e.course.name):null;
                                             const course = e.course?e.course.level.split(" ")[0]:null;
                                             const price = e.course?e.price_with_discount:null;
                                             const discount = e.course?e.discount_percentage:null;
+                                            const image = e.course?e.university.logo_url:null;
                                             const data = e?e:"";
                                             return (
                                                 <ListItem key={i}>
-                                                    <div className="UX-Line">
-                                                        <input className="chk-course" type="checkbox" defaultChecked={false} onClick={(el)=>this.toogleChart(data,el)}/><img src={image}/>
+                                                    <div className="modal__fieldset__wrapper-result__line">
+                                                        <input className="chk-course" type="checkbox" defaultChecked={false} onClick={(el)=>this.toogleChart(el, data)}/><img src={image?`http://localhost:5000/public/${image}`:null} alt={image?image:null}/>
                                                         <div className="description">
                                                             <p><span>{name}</span></p><p>{course}</p>
                                                         </div>
@@ -243,19 +234,13 @@ class Modal extends React.Component{
                                 </List>
                             </div>
                         </fieldset>
-                        <fieldset className="CommandsArea">
-                            <Button color="Primary-Blue" onClick={()=>this.handleModalStatus()}>Cancelar</Button>
-                            <Button color="Primary-Yellow" disabled={this.state.chartList.length>0?false:true}>Adicionar bolsa(s)</Button>
+                        <fieldset className="modal__fieldset--commands">
+                            <Button color="primary-color" onClick={this.handleModalStatus} value="cancel">Cancelar</Button>
+                            <Button color="primary-yellow" onClick={this.handleSubmit} disabled={this.state.chartList.length>0?false:true} value="send">Adicionar bolsa(s)</Button>
                         </fieldset>
                     </form>
                 </div>
             );
-
-        }
-        else{
-            return (null);
-        }
-        
     }
 }
 const mapStateToProps = store => {

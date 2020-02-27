@@ -1,19 +1,19 @@
 @import '../Colors/Colors.scss';
-$primary-blue: map-get($colorsNew, primary-blue);
-$secundary-blue: map-get($colorsNew, secundary-blue);
+$primary-color: map-get($colorsNew, primary-color);
+$secundary-color: map-get($colorsNew, secundary-color);
 $opacity: map-get($colorsNew, $key: opacity);
 $greycolor: map-get($colorsNew, grey);
 
-select.UX-Select{
+select.select-component{
     padding: 10px 10px;
     border: 1px solid rgb(214, 214, 214);
     border-radius: 2px;
-    &.semifull{
+    &.select-component--semifull{
         width: 90%;
     }
-    &.inline{
+    &.select-component--inline{
         font-size: 14px;
-        font-weight: 600; color: #{$primary-blue};
+        font-weight: 600; color: #{$primary-color};
         border: none;
     }
     /*

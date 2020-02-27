@@ -2,7 +2,7 @@ import { SHOW_MODAL_STATUS, SET_MODAL_STATUS } from '../Actions/actionTypes';
 
 const designInitialStatus = {
     Modal: {
-        status: true
+        status: false
     }
 }
 

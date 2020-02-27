@@ -1,6 +1,6 @@
 @import '../../Elements/Colors/Colors.scss';
-$primary-blue: map-get($colorsNew, primary-blue);
-$secundary-blue: map-get($colorsNew, secundary-blue);
+$primary-color: map-get($theme, primary-color);
+$secundary-color: map-get($theme, secundary-color);
 
 
 .App > .UX-Footer{
@@ -12,10 +12,10 @@ $secundary-blue: map-get($colorsNew, secundary-blue);
         height: 8em; width: 100%; align-items: center; justify-content: space-around; color: white;
     }
         .App > .UX-Footer > .UX-Footer-Group.blue{
-            background-color: #{$primary-blue};
+            background-color: #{$primary-color};
         }
         .App > .UX-Footer > .UX-Footer-Group.darkBlue{
-            background-color: #{$secundary-blue};
+            background-color: #{$secundary-color};
         }
     .UX-Footer-Group > .UX-Footer-SubGroup{
         display: flex; flex-direction: row; justify-content: center; align-items: center;

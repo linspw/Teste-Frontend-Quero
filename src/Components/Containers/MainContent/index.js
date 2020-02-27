@@ -8,9 +8,9 @@ import Card from '../../Elements/Card';
 class MainContent extends React.Component{
     constructor(props){
         super(props);
-        console.log("Props:",props);
         this.state = {
-            favorites: this.props.favorites
+            favorites: this.props.favorites,
+            semester: "all"
         }
 
     }
@@ -20,28 +20,34 @@ class MainContent extends React.Component{
             console.log(this.props.favorites)
         }
     }
+    handleSwitch = (semester) => {
+        this.setState({...this.state, semester})
+    }
     render(){
         return (
-            <div className="UX-MainContent">
-                <div className="UX-MainContent-Item CategoryWrapper">
+            <div className="main-content">
+                <div className="main-content__item main-content__item--category">
                     <a href="/#">Home</a><span>/</span><a href="/#">Minha Conta</a><span>/</span><a href="/#" className="active">Bolsas Favoritas</a>
                 </div>
-                <div className="UX-MainContent-Item TitleWrapper">
+                <div className="main-content__item main-content__item--title">
                     <span className="title">Bolsas favoritas</span>
                     <span className="subtitle">Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas dísponiveis.</span>
                 </div>
-                <div className="UX-MainContent-Item SwitchWrapper">
-                    <div className="SwitchBar">
-                        <button className="Element active">Todos os semestres</button>
-                        <button className="Element">1º semestre de 2020</button>
-                        <button className="Element">2º semestre de 2020</button>
+                <div className="main-content__item main-content__item--switch">
+                    <div className="main-content__item__switch-bar">
+                        <button className={`main-content__item__switch-bar__button ${this.state.semester==='all'?'active':''}`} onClick={()=>this.handleSwitch('all')}>Todos os semestres</button>
+                        <button className={`main-content__item__switch-bar__button ${this.state.semester==='2020.1'?'active':''}`} onClick={()=>this.handleSwitch('2020.1')}>1º semestre de 2020</button>
+                        <button className={`main-content__item__switch-bar__button ${this.state.semester==='2020.2'?'active':''}`} onClick={()=>this.handleSwitch('2020.2')}>2º semestre de 2020</button>
                     </div>
                 </div>
-                <div className="UX-MainContent-Item OffersWrapper">
+                <div className="main-content__item main-content__item--offers">
                     <Card/>
                     {this.state.favorites?(
                         this.state.favorites.map((e,i)=>{
-                            return (<Card key={i} value={e}/>)
+                            if(this.state.semester === 'all' || e.enrollment_semester === this.state.semester){
+                                return (<Card key={i} value={e}/>)
+                            }
+                            return null;
                         }
                     )):null}
                 </div>

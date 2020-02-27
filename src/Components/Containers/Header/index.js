@@ -11,24 +11,25 @@ class Header extends React.Component{
     render(){
         return (
             <>
-                <div className="UX-Header">
-                    <div className="UX-Header-Group">
-                        <div className="UX-Header-SubGroup">
-                            <div className="UX-Header-SubGroup-Text"><span className="bold">Como funciona</span></div><FontAwesomeIcon className="icon" icon={faInfoCircle}/>
+                <div className="header">
+                    <div className="header__group">
+                        <div className="header__subgroup">
+                            <FontAwesomeIcon className="icon" icon={faInfoCircle}/>
+                            <div className="header__subgroup--text"><span className="bold">Como funciona</span></div>
                         </div>
                         <div className="vertical-line"/>
-                        <div className="UX-Header-SubGroup">
+                        <div className="header__subgroup">
                             <FontAwesomeIcon className="icon whatsapp" icon={faWhatsapp}/>
-                            <div className="UX-Header-SubGroup-Text"><span className="bold">0800 123 2222</span><span className="normal">Envie Mensagem ou Ligue!</span></div>
+                            <div className="header__subgroup--text"><span className="bold">0800 123 2222</span><span className="normal">Envie Mensagem ou Ligue!</span></div>
                         </div>
                         
                     </div>
-                    <div className="UX-Header-Group">
-                        <img className="UX-Logo" alt="Quero Bolsa" src={Logo}/>
+                    <div className="header__group">
+                        <img className="logo" alt="Quero Bolsa" src={Logo}/>
                     </div>
-                    <div className="UX-Header-Group">
-                        <div className="UX-Header-SubGroup">
-                            <div className="UX-Header-SubGroup-Text"><span className="bold">Jessé Correia</span></div><FontAwesomeIcon className="icon" icon={faUserCircle}/>
+                    <div className="header__group">
+                        <div className="header__subgroup">
+                            <div className="header__subgroup--text"><span className="bold">Jessé Correia</span></div><FontAwesomeIcon className="icon" icon={faUserCircle}/>
                         </div>
                     </div>
                 </div>
