@@ -17,7 +17,7 @@ class Header extends React.Component{
                             <FontAwesomeIcon className="icon" icon={faInfoCircle}/>
                             <div className="header__subgroup--text"><span className="bold">Como funciona</span></div>
                         </div>
-                        <div className="vertical-line"/>
+                        <div className="group__vertical-line"/>
                         <div className="header__subgroup">
                             <FontAwesomeIcon className="icon whatsapp" icon={faWhatsapp}/>
                             <div className="header__subgroup--text"><span className="bold">0800 123 2222</span><span className="normal">Envie Mensagem ou Ligue!</span></div>
@@ -25,7 +25,7 @@ class Header extends React.Component{
                         
                     </div>
                     <div className="header__group">
-                        <img className="logo" alt="Quero Bolsa" src={Logo}/>
+                        <img className="group__logo" alt="Quero Bolsa" src={Logo}/>
                     </div>
                     <div className="header__group">
                         <div className="header__subgroup">
@@ -33,8 +33,8 @@ class Header extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div className="UX-Bar">
-                    <div className="UX-Bar-Group"><a href="/#">Minha Conta</a><a href="/#">Pré-Matrículas</a><a className="active" href="/#">Bolsas Favoritas</a></div>
+                <div className="bar">
+                    <div className="bar__group"><a href="/#">Minha Conta</a><a href="/#">Pré-Matrículas</a><a className="active" href="/#">Bolsas Favoritas</a></div>
                 </div>
             </>
         );

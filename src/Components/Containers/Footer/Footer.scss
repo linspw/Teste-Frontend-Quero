@@ -3,33 +3,34 @@ $primary-color: map-get($theme, primary-color);
 $secundary-color: map-get($theme, secundary-color);
 
 
-.App > .UX-Footer{
+.App > .footer{
     position: relative; 
     overflow: hidden;
-}
-    .App > .UX-Footer > .UX-Footer-Group{
+    & > .footer__group{
         position: relative; display: flex; flex-direction: row;
         height: 8em; width: 100%; align-items: center; justify-content: space-around; color: white;
-    }
-        .App > .UX-Footer > .UX-Footer-Group.blue{
+        &.footer__group--blue{
             background-color: #{$primary-color};
         }
-        .App > .UX-Footer > .UX-Footer-Group.darkBlue{
+        &.footer__group--darkBlue{
             background-color: #{$secundary-color};
         }
-    .UX-Footer-Group > .UX-Footer-SubGroup{
-        display: flex; flex-direction: row; justify-content: center; align-items: center;
+        & >  .footer__subgroup{
+            display: flex; flex-direction: row; justify-content: center; align-items: center;
+            & > .subgroup__icon{
+                font-size: 34px;
+            }
+            & > .subgroup__text{
+                display: flex; flex-direction: column; margin: {left: 1em;};
+                & span.normal{
+                    font-size: 13px;
+                }
+                & span.bold{
+                    font-weight: 550;
+                }
+            }
+        }
     }
-        .UX-Footer-Group > .UX-Footer-SubGroup > .icon{
-            font-size: 34px;
-        }
-        .UX-Footer-Group > .UX-Footer-SubGroup > .UX-Footer-SubGroup-Text{
-            display: flex; flex-direction: column; margin: {left: 1em;};
-        }
-            .UX-Footer-Group > .UX-Footer-SubGroup > .UX-Footer-SubGroup-Text span.normal{
-                font-size: 14px;
+    
+}
 
-            }
-            .UX-Footer-Group > .UX-Footer-SubGroup > .UX-Footer-SubGroup-Text span.bold{
-                font-weight: 550;
-            }

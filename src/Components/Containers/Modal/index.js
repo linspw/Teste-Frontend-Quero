@@ -152,8 +152,8 @@ class Modal extends React.Component{
                             <span className="subtitle">Fitlre e adicione as bolsas de seu interesse</span>
                         </fieldset>
                         <fieldset className="modal__fieldset--filter">
-                            <div className="modal__fieldset__group">
-                                <div className="modal__fieldset__subgroup">
+                            <div className="fieldset__group">
+                                <div className="fieldset__subgroup">
                                     <label htmlFor="city" className="Title">Selecione sua cidade</label>
                                     <Select id="city" semifull onChange={(e)=>this.handleCitySelect(e.target.value)}>
                                         {this.state.cities?(
@@ -163,7 +163,7 @@ class Modal extends React.Component{
                                             )):<option value=""></option>}
                                     </Select>
                                 </div>
-                                <div className="modal__fieldset__subgroup">
+                                <div className="fieldset__subgroup">
                                     <label htmlFor="course" className="Title">Selecione o cursos de sua preferência</label>
                                     <Select id="course" semifull onChange={(e)=>{this.handleCourseSelect(e.target.value)}}>
                                         {this.state.courses?(
@@ -174,19 +174,19 @@ class Modal extends React.Component{
                                     </Select>
                                 </div>
                             </div>
-                            <div className="modal__fieldset__group">
-                                <div className="modal__fieldset__subgroup">
+                            <div className="fieldset__group">
+                                <div className="fieldset__subgroup">
                                     <label className="Title">Como você quer estudar?</label>
-                                    <div className="modal__fieldset__subgroup__check-box">
+                                    <div className="subgroup__check-box">
                                         <input type="checkbox" id="kind1" name="kind1" value="Presencial" defaultChecked={this.state.form.Type.Presencial} onChange={(e)=>this.handleCheckBoxPresencial(e.target.checked)}/> 
                                         <label htmlFor="kind1">Presencial</label>
                                         <input type="checkbox" id="kind2" name="kind2" value="EaD" defaultChecked={this.state.form.Type.EaD} onChange={(e)=>this.handleCheckBoxEaD(e.target.checked)}/>
                                         <label htmlFor="kind2">EaD</label>
                                     </div>
                                 </div>
-                                <div className="modal__fieldset__subgroup">     
+                                <div className="fieldset__subgroup">     
                                     <label className="Title">Até quanto você pode pagar?</label>
-                                    <div className="modal__fieldset__subgroup__range">
+                                    <div className="subgroup__range">
                                         <label htmlFor="price">R$ {new Intl.NumberFormat().format(this.state.form.Range)}</label>
                                         <input id="price" type="range" min="0" max="10000" step="50" value={this.state.form.Range} onChange={(e)=>this.handleRangeInput(e.target.value)}/>
                                     </div>
@@ -205,7 +205,7 @@ class Modal extends React.Component{
                                     </Select>
                                 </span>
                             </legend>
-                            <div className="modal__fieldset__wrapper-result">
+                            <div className="fieldset__wrapper-result">
                                 <List>
                                     {this.state.data?(
                                         this.state.data.map((e,i)=>{
@@ -217,7 +217,7 @@ class Modal extends React.Component{
                                             const data = e?e:"";
                                             return (
                                                 <ListItem key={i}>
-                                                    <div className="modal__fieldset__wrapper-result__line">
+                                                    <div className="wrapper-result__line">
                                                         <input className="chk-course" type="checkbox" defaultChecked={false} onClick={(el)=>this.toogleChart(el, data)}/><img src={image?`http://localhost:5000/public/${image}`:null} alt={image?image:null}/>
                                                         <div className="description">
                                                             <p><span>{name}</span></p><p>{course}</p>

@@ -42,28 +42,28 @@ $green: map-get($theme, green);
             &.modal__fieldset--filter{
                 display: flex; flex-direction: column; position: relative;
                 margin-bottom: 10px;
-                & .modal__fieldset__group{
-                    display: flex; flex-direction: wrap; width: 100%;
+                & .fieldset__group{
+                    display: flex; width: 100%;
                     justify-content: space-between;
-                    & .modal__fieldset__subgroup{
+                    & .fieldset__subgroup{
                         display: flex; flex-direction: column; width: 100%;
                         padding: {top:10px; bottom: 10px;}; min-height: fit-content;
-                        &.modal__fieldset__subgroup--horizontal{
+                        &.fieldset__subgroup--horizontal{
                             flex-direction: row;
                         }
-                        & > .modal__fieldset__subgroup__check-box{
+                        & > .subgroup__check-box{
                             display: flex; justify-content: flex-start; align-items: center;
                             padding: 10px; height: fit-content;
                             & > *{
                                 margin-right: 14px;
                             }
                         }
-                        & > .modal__fieldset__subgroup__range{
+                        & > .subgroup__range{
                             display: flex; flex-direction: column;
                             padding: {bottom: 10px;};
                         }
                     }
-                    &.modal__fieldset__group--vertical{
+                    &.fieldset__group--vertical{
                         flex-direction: column;
                     }
                 }
@@ -88,9 +88,9 @@ $green: map-get($theme, green);
 
                     }
                 }
-                & > .modal__fieldset__wrapper-result{
+                & > .fieldset__wrapper-result{
                     
-                    & .modal__fieldset__wrapper-result__line{
+                    & .wrapper-result__line{
                         display: flex; flex-direction: row; height: 2.5em; overflow: hidden; font-size: 14px; align-items: center; 
                         & > div{
                             display: flex; flex-direction: column;
