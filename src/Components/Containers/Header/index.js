@@ -15,12 +15,13 @@ class Header extends React.Component{
                     <div className="header__group">
                         <div className="header__subgroup">
                             <FontAwesomeIcon className="icon" icon={faInfoCircle}/>
-                            <div className="header__subgroup--text"><span className="bold">Como funciona</span></div>
+                            <div className="subgroup__text subgroup__text--desktop"><span className="bold">Como funciona</span></div>
+                            <div className="subgroup__text subgroup__text--mobile"><span className="bold">Ajuda</span></div>
                         </div>
                         <div className="group__vertical-line"/>
                         <div className="header__subgroup">
                             <FontAwesomeIcon className="icon whatsapp" icon={faWhatsapp}/>
-                            <div className="header__subgroup--text"><span className="bold">0800 123 2222</span><span className="normal">Envie Mensagem ou Ligue!</span></div>
+                            <div className="subgroup__text subgroup__text--desktop"><span className="bold">0800 123 2222</span><span className="normal">Envie Mensagem ou Ligue!</span></div>
                         </div>
                         
                     </div>
@@ -28,8 +29,11 @@ class Header extends React.Component{
                         <img className="group__logo" alt="Quero Bolsa" src={Logo}/>
                     </div>
                     <div className="header__group">
+                        <div className="group__vertical-line group__vertical-line--mobile"/>
                         <div className="header__subgroup">
-                            <div className="header__subgroup--text"><span className="bold">Jessé Correia</span></div><FontAwesomeIcon className="icon" icon={faUserCircle}/>
+                            <div className="subgroup__text subgroup__text--desktop"><span className="bold">Jessé Correia</span></div>
+                            <FontAwesomeIcon className="icon" icon={faUserCircle}/>
+                            <div className="subgroup__text subgroup__text--mobile"><span className="bold">Conta</span></div>
                         </div>
                     </div>
                 </div>

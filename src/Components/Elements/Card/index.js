@@ -46,7 +46,7 @@ const Card = (props) =>{
     }
     else{
         return (
-            <div className="card">
+            <div className="card card--add">
                 <button className="card__group" onClick={props.toogleStatusModal?()=>props.toogleStatusModal(true):()=>console.log("Clickado")}>
                     <div className="card__subgroup card__subgroup--addicon">
                         <FontAwesomeIcon icon={faPlusCircle}/>

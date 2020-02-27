@@ -1,4 +1,6 @@
 @import '../../Elements/Colors/Colors.scss';
+@import '../../Elements/Breakpoints/Breakpoints.scss';
+
 $primary-color: map-get($colorsNew, primary-color);
 $secundary-color: map-get($colorsNew, secundary-color);
 
@@ -16,9 +18,26 @@ $green: map-get($colorsNew, green);
     
         & > .header__subgroup{
             color: #{$primary-color};
-            display: flex; flex-direction: row; justify-content: center; align-items: center;
-            & > .header__subgroup--text{
+            display: flex;  justify-content: center; align-items: center; flex-direction: column;
+            @include breakpoint(desktop){
+                flex-direction: row;
+            }
+            & > .subgroup__text{
                 display: flex; flex-direction: column;
+                &.subgroup__text--mobile{
+                    @include breakpoint(desktop){
+                        display: none;
+                    }
+                }
+                &.subgroup__text--desktop{
+                    @include breakpoint(mobile){
+                        display: none;
+                    }
+                    @include breakpoint(desktop){
+                        display: flex;
+                    }                     
+                    
+                }
                 & > span.bold{
                     font-size: 16px;
                     font-weight: 600;
@@ -33,18 +52,30 @@ $green: map-get($colorsNew, green);
                 &.whatsapp{
                     margin: {right: 6px;};
                     color: #{$green};
+                    @include breakpoint(mobile){
+                        display: none;
+                    }
                 }
             }
             
         }
 
 
-        & > .group__vertical-line{
+        & .group__vertical-line{
             height: 3.75em; width: 2px; background-color: #dfe0e5; margin: { left: 10px; right: 10px;};
+            &.group__vertical-line--mobile{
+                display: none;
+                @include breakpoint(mobile){
+                    display: block;
+                }
+            }
         }
 
         & > .group__logo{
-            width: 16em; height: auto;
+            height: auto; width: 10em;
+            @include breakpoint(desktop){
+                width: 16em; height: auto;
+            }
         }
     }
 }

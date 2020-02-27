@@ -4,6 +4,11 @@ const OffersInitial = {
     favorites: []
 }
 
+const returnDiffer = (array) => {
+    
+}
+
+
 function OffersReducer (state = OffersInitial, action){
     switch (action.type){
         case SHOW_OFFERS_FAVORITE:

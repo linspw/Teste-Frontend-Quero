@@ -1,4 +1,5 @@
 @import '../../Elements/Colors/Colors.scss';
+@import '../../Elements/Breakpoints/Breakpoints.scss';
 
 $primary-color: map-get($theme, primary-color);
 $secundary-color: map-get($theme, secundary-color);
@@ -15,7 +16,10 @@ $white: map-get($theme, white);
     & > .main-content__item{
         position: relative;
         width: auto;
-        margin: {left: 6em; right: 6em;};
+        @include breakpoint(desktop){
+            margin: {left: 6em; right: 6em;};
+        }
+
         &.main-content__item--category{
             height: 3em;
             padding: {top: 1em; bottom: 1em;};
@@ -44,11 +48,14 @@ $white: map-get($theme, white);
         }
         &.main-content__item--switch{
             min-height: auto; margin-top: 1em;
-            padding: 10px; display: flex; justify-content: flex-end;
+            padding: 10px; display: flex;
+            @include breakpoint(desktop){
+                justify-content: flex-end;
+            }
             & > .main-content__item__switch-bar{
-                width: 35em;
-                height: 2em; 
-                display: flex; flex-direction: row;
+                
+                display: flex; flex-direction: column;
+                width: 100%;
                 & > button.main-content__item__switch-bar__button{
                     flex: 1;
                     color: #{$secundary-color}; background-color:#{$white};
@@ -65,23 +72,35 @@ $white: map-get($theme, white);
                     }
                 }
                 & > :first-child{
-                    border-radius: 8px 0px 0px 8px;
+                    border-radius: 4px 4px 0px 0px;
                 }
                 & > :last-child{
-                    border-radius: 0px 8px 8px 0px;
+                    border-radius: 0px 0px 4px 4px;
                 }
-                
+                @include breakpoint(desktop){
+                    flex-direction: row;
+                    width: 35em;
+                    height: 2em; 
+                    & > :first-child{
+                        border-radius: 8px 0px 0px 8px;
+                    }
+                    & > :last-child{
+                        border-radius: 0px 8px 8px 0px;
+                    }
+                }                
             }
         }
         &.main-content__item--offers{
             min-height: auto; margin-top: 1em; padding: 10px; 
-            display: flex;
-            flex-wrap: nowrap;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             
             & > :first-child{
                 margin-left: 0em;
+            }
+            @include breakpoint(desktop){
+                flex-direction: row; justify-content: stretch;
             }
         }
     }
