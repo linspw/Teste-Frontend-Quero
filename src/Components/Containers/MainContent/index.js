@@ -34,10 +34,10 @@ class MainContent extends React.Component{
                     <span className="subtitle">Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas dísponiveis.</span>
                 </div>
                 <div className="main-content__item main-content__item--switch">
-                    <div className="main-content__item__switch-bar">
-                        <button className={`main-content__item__switch-bar__button ${this.state.semester==='all'?'active':''}`} onClick={()=>this.handleSwitch('all')}>Todos os semestres</button>
-                        <button className={`main-content__item__switch-bar__button ${this.state.semester==='2020.1'?'active':''}`} onClick={()=>this.handleSwitch('2020.1')}>1º semestre de 2020</button>
-                        <button className={`main-content__item__switch-bar__button ${this.state.semester==='2020.2'?'active':''}`} onClick={()=>this.handleSwitch('2020.2')}>2º semestre de 2020</button>
+                    <div className="switch-bar">
+                        <button className={`switch-bar__button ${this.state.semester==='all'?'active':''}`} onClick={()=>this.handleSwitch('all')}>Todos os semestres</button>
+                        <button className={`switch-bar__button ${this.state.semester==='2020.1'?'active':''}`} onClick={()=>this.handleSwitch('2020.1')}>1º semestre de 2020</button>
+                        <button className={`switch-bar__button ${this.state.semester==='2020.2'?'active':''}`} onClick={()=>this.handleSwitch('2020.2')}>2º semestre de 2020</button>
                     </div>
                 </div>
                 <div className="main-content__item main-content__item--offers">

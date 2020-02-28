@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import Logo from '../../../Assets/logotipo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faUserCircle, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -37,9 +37,23 @@ class Header extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div className="bar">
-                    <div className="bar__group"><a href="/#">Minha Conta</a><a href="/#">Pré-Matrículas</a><a className="active" href="/#">Bolsas Favoritas</a></div>
-                </div>
+                <nav className="bar">
+                    <div className="bar__group">
+                        <div className="bar__subgroup"><a href="/#">Minha Conta</a></div>
+                        <div className="bar__subgroup bar__subgroup--desktop"><a href="/#">Pré-Matrículas</a></div>
+                        <div className="bar__subgroup bar__subgroup--desktop bar__subgroup--active"><a href="/#">Bolsas Favoritas</a></div>
+                    </div>
+                    <div className="bar__group bar__group--menu bar__group--toggle">
+                        <div className="bar__subgroup">
+                            Menu
+                            <FontAwesomeIcon className="icon" icon={faAngleDown}/>
+                        </div>
+                        <ul className="drop-menu">
+                            <li><a href="/#">Pré-Matrículas</a></li>
+                            <li><a href="/#">Bolsas Favoritas</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </>
         );
     }

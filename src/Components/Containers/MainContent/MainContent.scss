@@ -52,15 +52,15 @@ $white: map-get($theme, white);
             @include breakpoint(desktop){
                 justify-content: flex-end;
             }
-            & > .main-content__item__switch-bar{
-                
+            & > .switch-bar{
                 display: flex; flex-direction: column;
                 width: 100%;
-                & > button.main-content__item__switch-bar__button{
+                & > button.switch-bar__button{
                     flex: 1;
                     color: #{$secundary-color}; background-color:#{$white};
                     font-weight: 500;
                     border: 1px solid #{$primary-color}; margin:-1px 0 0 -1px;
+                    padding: {top:10px; bottom: 10px;};
                     &:hover{
                         border: 2px solid #{$primary-color};
                         background-color:#{$white};

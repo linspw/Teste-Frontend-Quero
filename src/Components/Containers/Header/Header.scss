@@ -3,6 +3,7 @@
 
 $primary-color: map-get($colorsNew, primary-color);
 $secundary-color: map-get($colorsNew, secundary-color);
+$white: map-get($colorsNew, white);
 
 $green: map-get($colorsNew, green);
 
@@ -19,9 +20,6 @@ $green: map-get($colorsNew, green);
         & > .header__subgroup{
             color: #{$primary-color};
             display: flex;  justify-content: center; align-items: center; flex-direction: column;
-            @include breakpoint(desktop){
-                flex-direction: row;
-            }
             & > .subgroup__text{
                 display: flex; flex-direction: column;
                 &.subgroup__text--mobile{
@@ -57,7 +55,9 @@ $green: map-get($colorsNew, green);
                     }
                 }
             }
-            
+            @include breakpoint(desktop){
+                flex-direction: row;
+            }            
         }
 
 
@@ -80,25 +80,51 @@ $green: map-get($colorsNew, green);
     }
 }
 .App > .bar{
-    position: relative; display:flex; width: 100%; height: 2.75em;
+    position: relative; display:flex;  justify-content: space-between; width: 100%; height: 2.75em;
     background-color: #{$primary-color}; box-shadow: inset 0px 0px 15px 1px rgba(155, 157, 187, 0.8);
-    overflow: hidden;
     & > .bar__group{
-        margin: { left: 6em; right: 6em; };
-        font-weight: 700;
-        color: white;
+        color: white; font-weight: 700; position: relative;
         display: flex; align-items: center; justify-content: center; font-family: 'Proxima_Nova-Bold';
-        & > a{
-            margin: {
-                left: 1em; right: 1em;
-            };
-            padding: {
-                left: 8px; right: 8px;
-            };
-            height: 100%; display: flex; align-items: center; justify-content: center;
-            &.active{
-                background-color: #{$secundary-color};
+        margin: { left: 2em; right: 2em; };
+        & > .bar__subgroup{
+            text-align: center; padding: {left: 10px; right: 10px;};
+            & > a{
+                height: 100%; vertical-align: middle;
             }
+            & > .icon{
+                font-size: 14px; margin: { left: 8px; right: 8px;};
+            }
+            &.bar__subgroup--desktop{
+                display: none;
+                @include breakpoint(desktop){
+                    display: block;
+                }
+            }
+            &.bar__subgroup--toggle:hover ~ ul{
+                display: table;
+            }
+            @include breakpoint(desktop){
+                padding: {left: 20px; right: 20px;};
+            }
+        }
+        & > ul{
+            position: absolute; top: 100%; display: none; z-index: 1000; list-style-type: none; color: black;
+            padding-inline-start: 0px; background-color: #{$secundary-color};
+            & > li{
+                color: #{$white};
+                padding: {top:10px; left: 20px; right: 20px; bottom: 10px;};
+            }   
+        }
+        &.bar__group--menu{
+            @include breakpoint(desktop){
+                display: none;
+            }
+        }
+        &.bar__group--toggle:hover ul{
+            display: table;
+        }
+        @include breakpoint(desktop){
+            margin: { left: 6em; right: 6em; };
         }
     }
 }
