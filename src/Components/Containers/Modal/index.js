@@ -89,7 +89,7 @@ class Modal extends React.Component{
     /*Função para manipular as requests na API*/
     handleRequest = async () =>{
         let result = false;
-        await axios({method: 'get', url: 'http://localhost:5000/', responseType: 'json', timeout: 10000}).then(async (response)=>{
+        await axios({method: 'get', url: process.env.REACT_APP_BAKEND, responseType: 'json', timeout: 10000}).then(async (response)=>{
             let array = response.data;
             result = array;
 
@@ -221,7 +221,7 @@ class Modal extends React.Component{
                                             return (
                                                 <ListItem key={i}>
                                                     <div className="wrapper-result__line">
-                                                        <input className="chk-course" type="checkbox" defaultChecked={false} onClick={(el)=>this.toogleChart(el, data)}/><img src={image?`http://localhost:5000/public/${image}`:null} alt={image?image:null}/>
+                                                        <input className="chk-course" type="checkbox" defaultChecked={false} onClick={(el)=>this.toogleChart(el, data)}/><img src={image?`${process.env.REACT_APP_BAKEND}public/${image}`:null} alt={image?image:null}/>
                                                         <div className="description">
                                                             <p><span>{name}</span></p><p>{course}</p>
                                                         </div>
