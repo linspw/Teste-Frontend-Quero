@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as InterfaceActions from '../../../Redux/Actions/interfaceActions';
-import './MainContent.scss';
 import Card from '../../Elements/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import './MainContent.scss';
+
 
 
 class MainContent extends React.Component{
@@ -15,9 +18,10 @@ class MainContent extends React.Component{
 
     }
     componentDidUpdate = async (prevProps) => {
-        if (this.props.favorites !== prevProps.favorites) {
+        console.log("Tentando Atualizar")
+        if ((this.props.favorites !== prevProps.favorites) && (this.props.favorites !== prevProps.favorites.lenght)) {
             await this.setState({...this.state, favorites: this.props.favorites});
-            console.log(this.props.favorites)
+            console.log("Atualizou:",this.props.favorites)
         }
     }
     handleSwitch = (semester) => {
@@ -27,7 +31,7 @@ class MainContent extends React.Component{
         return (
             <div className="main-content">
                 <div className="main-content__item main-content__item--category">
-                    <a href="/#">Home</a><span>/</span><a href="/#">Minha Conta</a><span>/</span><a href="/#" className="active">Bolsas Favoritas</a>
+                    <a className="desktop" href="/#">Home</a><span className="desktop">/</span><a href="/#"><FontAwesomeIcon className="icon" icon={faAngleLeft}/>Minha Conta</a><span className="desktop">/</span><a className="desktop active" href="/#">Bolsas Favoritas</a>
                 </div>
                 <div className="main-content__item main-content__item--title">
                     <span className="title">Bolsas favoritas</span>
@@ -45,7 +49,7 @@ class MainContent extends React.Component{
                     {this.state.favorites?(
                         this.state.favorites.map((e,i)=>{
                             if(this.state.semester === 'all' || e.enrollment_semester === this.state.semester){
-                                return (<Card key={i} value={e}/>)
+                                return (<Card key={i} value={e} index={i}/>)
                             }
                             return null;
                         }

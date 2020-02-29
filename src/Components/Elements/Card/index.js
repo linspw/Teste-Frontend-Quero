@@ -38,7 +38,7 @@ const Card = (props) =>{
                         <span><strong className="green">R$ {new Intl.NumberFormat().format(data.price_with_discount)}</strong> /mês</span>
                     </div>
                     <div className="card__subgroup card__subgroup--horizontal">
-                        <Button color="primary-color">Excluir</Button> <Button color="primary-yellow">Ver Oferta</Button>
+                        <Button color="primary-color" onClick={()=>props.removeOffersFavorite(props.index)}>Excluir</Button> <Button color="primary-yellow" disabled={data.enabled?false:true}>Ver Oferta</Button>
                     </div>
                 </div>
             </div>

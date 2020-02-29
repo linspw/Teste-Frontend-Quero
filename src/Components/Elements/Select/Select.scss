@@ -1,27 +1,27 @@
 @import '../Colors/Colors.scss';
-$primary-color: map-get($colorsNew, primary-color);
-$secundary-color: map-get($colorsNew, secundary-color);
-$opacity: map-get($colorsNew, $key: opacity);
-$greycolor: map-get($colorsNew, grey);
+@import '../Breakpoints/Breakpoints.scss';
+
+$primary-color: map-get($theme, primary-color);
+$secundary-color: map-get($theme, secundary-color);
+$opacity: map-get($theme, $key: opacity);
+$greycolor: map-get($theme, grey);
 
 select.select-component{
     padding: 10px 10px;
     border: 1px solid rgb(214, 214, 214);
     border-radius: 2px;
-    &.select-component--semifull{
-        width: 90%;
+    &.select-component--desktop{
+        width: 100%;
+        @include breakpoint(desktop){
+            width: 90%;
+        }
     }
     &.select-component--inline{
         font-size: 14px;
-        font-weight: 600; color: #{$primary-color};
+        font-weight: 600; color: #{$secundary-color};
         border: none;
     }
-    /*
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;*/
     &:focus{
         outline: none;
-    }
+    }   
 }

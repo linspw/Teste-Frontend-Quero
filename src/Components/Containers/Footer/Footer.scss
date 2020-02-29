@@ -1,4 +1,6 @@
 @import '../../Elements/Colors/Colors.scss';
+@import '../../Elements/Breakpoints/Breakpoints.scss';
+
 $primary-color: map-get($theme, primary-color);
 $secundary-color: map-get($theme, secundary-color);
 
@@ -7,8 +9,8 @@ $secundary-color: map-get($theme, secundary-color);
     position: relative; 
     overflow: hidden;
     & > .footer__group{
-        position: relative; display: flex; flex-direction: row;
-        height: 8em; width: 100%; align-items: center; justify-content: space-around; color: white;
+        position: relative; display: flex; flex-wrap: wrap;
+        min-height: 8em; width: 100%; align-items: center; justify-content: space-around; color: white;
         &.footer__group--blue{
             background-color: #{$primary-color};
         }
@@ -16,18 +18,48 @@ $secundary-color: map-get($theme, secundary-color);
             background-color: #{$secundary-color};
         }
         & >  .footer__subgroup{
-            display: flex; flex-direction: row; justify-content: center; align-items: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 0 0 33%;
+            padding: {top:10px; bottom: 10px;}; height: 6em;
             & > .subgroup__icon{
                 font-size: 34px;
             }
             & > .subgroup__text{
-                display: flex; flex-direction: column; margin: {left: 1em;};
+                display: flex; flex-direction: column;
+                &.subgroup__text--desktop{
+                    display: none;
+                    @include breakpoint(desktop){
+                        display: flex;
+                    }
+                }
+                &.subgroup__text--mobile{
+                    display: flex;
+                    @include breakpoint(desktop){
+                        display: none;
+                    }
+                }
                 & span.normal{
                     font-size: 13px;
                 }
                 & span.bold{
                     font-weight: 550;
                 }
+                @include breakpoint(desktop){
+                    margin: {left: 1em;};
+                }
+            }
+            &.footer__subgroup--big{
+                flex: 0 0 100%;
+                @include breakpoint(desktop){
+                    flex: 0 0 25%;
+                }
+            }
+            &.footer__subgroup--darkBlue{
+                background-color: #{$secundary-color};
+
+            }
+            @include breakpoint(desktop){
+                flex: 0 0 25%;
+                flex-direction: row; height: 8em;
             }
         }
     }

@@ -27,14 +27,27 @@ $white: map-get($theme, white);
                 padding: 10px;
                 color: #{$primary-color};
                 font-weight: 600;
+                & > .icon{
+                    margin: {left: 10px; right: 10px};
+                    @include breakpoint(desktop){
+                        display: none;
+                    }
+                }
                 &.active{
                     color: #{$black};
+                }
+            }
+            
+            & .desktop{
+                display: none;
+                @include breakpoint(desktop){
+                    display: inline;
                 }
             }
         }
         &.main-content__item--title{
             min-height: 3em;
-            padding: 10px; display: flex; flex-direction: column; 
+            padding: 14px; display: flex; flex-direction: column; 
             color: #{$black};
             & > span.title{
                 font-weight: 600;
@@ -42,13 +55,13 @@ $white: map-get($theme, white);
             }
             & > span.subtitle{
                 margin-top: 0.75em;
-                font-weight: 500;
-                font-size: 14px;
+                font-weight: 530;
+                font-size: 17px;
             }
         }
         &.main-content__item--switch{
             min-height: auto; margin-top: 1em;
-            padding: 10px; display: flex;
+            padding: 14px; display: flex;
             @include breakpoint(desktop){
                 justify-content: flex-end;
             }
@@ -56,11 +69,9 @@ $white: map-get($theme, white);
                 display: flex; flex-direction: column;
                 width: 100%;
                 & > button.switch-bar__button{
-                    flex: 1;
-                    color: #{$secundary-color}; background-color:#{$white};
-                    font-weight: 500;
-                    border: 1px solid #{$primary-color}; margin:-1px 0 0 -1px;
-                    padding: {top:10px; bottom: 10px;};
+                    color: #{$secundary-color}; background-color:#{$white};border: 1px solid #{$primary-color};
+                    font-weight: 500; display:flex; flex: 1; align-items: center; justify-content: center;
+                    margin:-1px 0 0 -1px; padding:{top: 10px; bottom: 10px;};
                     &:hover{
                         border: 2px solid #{$primary-color};
                         background-color:#{$white};
@@ -69,6 +80,9 @@ $white: map-get($theme, white);
                     &.active{
                         border: 1px solid #{$primary-color};
                         color:#{$white}; background-color: #{$secundary-color}; 
+                    }
+                    @include breakpoint(desktop){
+                        padding: 0;
                     }
                 }
                 & > :first-child{
@@ -91,7 +105,7 @@ $white: map-get($theme, white);
             }
         }
         &.main-content__item--offers{
-            min-height: auto; margin-top: 1em; padding: 10px; 
+            min-height: auto; margin-top: 1em; padding: 14px; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;

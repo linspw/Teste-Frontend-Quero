@@ -144,7 +144,9 @@ class Modal extends React.Component{
     }
     render(){
             return (
+                <>
                 <div className="modal">
+                    <div className="modal__opacity">
                     <form className="modal__wrapper">
                         <button className="modal__button--close" onClick={()=>this.handleModalStatus()}><FontAwesomeIcon icon={faTimes}/></button>
                         <fieldset className="modal__fieldset--title">
@@ -239,7 +241,9 @@ class Modal extends React.Component{
                             <Button color="primary-yellow" onClick={this.handleSubmit} disabled={this.state.chartList.length>0?false:true} value="send">Adicionar bolsa(s)</Button>
                         </fieldset>
                     </form>
+                    </div>
                 </div>
+            </>
             );
     }
 }

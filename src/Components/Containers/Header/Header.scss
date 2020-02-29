@@ -1,11 +1,11 @@
 @import '../../Elements/Colors/Colors.scss';
 @import '../../Elements/Breakpoints/Breakpoints.scss';
 
-$primary-color: map-get($colorsNew, primary-color);
-$secundary-color: map-get($colorsNew, secundary-color);
-$white: map-get($colorsNew, white);
+$primary-color: map-get($theme, primary-color);
+$secundary-color: map-get($theme, secundary-color);
+$white: map-get($theme, white);
 
-$green: map-get($colorsNew, green);
+$green: map-get($theme, green);
 
 
 .App > .header{
@@ -85,7 +85,7 @@ $green: map-get($colorsNew, green);
     & > .bar__group{
         color: white; font-weight: 700; position: relative;
         display: flex; align-items: center; justify-content: center; font-family: 'Proxima_Nova-Bold';
-        margin: { left: 2em; right: 2em; };
+        margin: { left: 1em; right: 1em; };
         & > .bar__subgroup{
             text-align: center; padding: {left: 10px; right: 10px;};
             & > a{
