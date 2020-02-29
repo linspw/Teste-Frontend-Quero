@@ -88,7 +88,7 @@ class Modal extends React.Component{
     }
     /*Função para manipular as requests na API*/
     handleRequest = async () =>{
-        let result = false;
+        let result = [];
         await axios({method: 'get', url: process.env.REACT_APP_BACKEND, responseType: 'json', timeout: 10000}).then(async (response)=>{
             let array = response.data;
             result = array;
