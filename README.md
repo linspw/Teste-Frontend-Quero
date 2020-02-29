@@ -1,12 +1,12 @@
 ## Projeto Teste Fron-End Quero Educação - (Parte do Front)
 
 Projeto para realização do Teste de Front-end da Quero Educação.
-Todo o projeto levou em torno de 22 horas divididos entre 2 semanas.
+Todo o projeto levou em torno de 22 horas.
 
 Front-URL: (https://teste-front-end-quero.herokuapp.com/)
 
 Foi criado também uma API Backend para servir com os dados do Projeto.
-
+Backend-URL: (https://teste-front-end-quero-api.herokuapp.com/)
 
 ### Deploy Realizado no Heroku
 
@@ -17,6 +17,8 @@ Para iniciar a Aplicação React é necessário o Node instalado na máquina, em
 Após isso será necessário clonar o repositório, e depois de clonado, deve ser iniciado pelos seguintes SCRIPTS: `yarn start` ou `npm start`
 
 Depois de iniciado o projeto pelo Terminal, o projeto pode ser acessado pela URL: (http://localhost:3000/)
+
+OBS: Coloquei um arquivo ENV Apontando para a o BACKEND com a API
 
 ### Estrutura do projeto
 ```
@@ -73,3 +75,10 @@ O tema pode ser alterado no Arquivo `Colors.scss` da Pasta `Elements/Colors/`, t
 ### Controle de dados:
 
 O controle dos dados da Página foram realizados em conjunto com o Redux que cria uma single source of truth na aplicação, centralizando os principais estados dos componentes da aplicação.
+
+### Backend:
+Repositório (https://github.com/linspw/Teste-Frontend-Quero-API)
+Estrutura dos dados é exatamente igual a estrutura mostrada no teste da quero.
+A API é servida com o Express, e ela também retorna as imagens das universidades.
+
+Para utilizar local é só clonar o Repositório e alterar o arquivo no .env do front, apontando para a url local do back (http://localhost:5000/).
