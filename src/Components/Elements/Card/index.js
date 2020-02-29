@@ -13,7 +13,7 @@ const Card = (props) =>{
         return (
             <div className="card">
                 <div className="card__group">
-                    <img src={`${process.env.REACT_APP_BAKEND}public${data.university.logo_url}`} alt={data.university.name}/>
+                    <img src={`${process.env.REACT_APP_BACKEND}public${data.university.logo_url}`} alt={data.university.name}/>
                 </div>
                 <div className="card__group">
                     <div className="card__subgroup">

@@ -26,7 +26,7 @@ class Header extends React.Component{
                         
                     </div>
                     <div className="header__group">
-                        <img className="group__logo" alt="Quero Bolsa" src={`${process.env.REACT_APP_BAKEND}public/logo-querobolsa-1.svg`}/>
+                        <img className="group__logo" alt="Quero Bolsa" src={`${process.env.REACT_APP_BACKEND}public/logo-querobolsa-1.svg`}/>
                     </div>
                     <div className="header__group">
                         <div className="group__vertical-line group__vertical-line--mobile"/>
