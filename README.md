@@ -19,7 +19,7 @@ Após isso será necessário clonar o repositório, e depois de clonado, deve se
 Depois de iniciado o projeto pelo Terminal, o projeto pode ser acessado pela URL: (http://localhost:3000/)
 
 ### Estrutura do projeto
-
+```
 C:.
 ├───Assets
 │   └───images
@@ -44,7 +44,7 @@ C:.
 └───Style
     └───Font
         └───Proxima_Nova
-
+```
 ### Principais ferramentas Utilizadas
 
 - React
