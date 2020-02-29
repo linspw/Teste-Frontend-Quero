@@ -50,11 +50,12 @@ C:.
 ### Principais ferramentas Utilizadas
 
 - React
+- Redux
 - Sass
 - Node: API para o Backend
 
 ### Patterns adotados:
-
+```
 - Estilo:
 -- Mobile first
 -- BEM (Block Element Modifier)
@@ -66,7 +67,7 @@ C:.
 -- React Class Components para Containers e React Functional Dumb Components
 -- State-full Components
 -- ES6 
-
+```
 ### Temas do Projeto:
 
 O projeto possuí dois temas, o clássico pedido pelo teste da Quero, e um baseado no novo Brand da Quero Educação.
