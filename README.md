@@ -68,7 +68,7 @@ C:.
 ### Temas do Projeto:
 
 O projeto possuí dois temas, o clássico pedido pelo teste da Quero, e um baseado no novo Brand da Quero Educação.
-O tempo pode ser alterado no Arquivo `Colors.scss` da Pasta `Elements/Colors/`, trocando-se `$theme: $colorsNew;` por `$theme: $colorsOld;`.
+O tema pode ser alterado no Arquivo `Colors.scss` da Pasta `Elements/Colors/`, trocando-se `$theme: $colorsNew;` por `$theme: $colorsOld;`.
 
 ### Controle de dados:
 
