@@ -18,10 +18,8 @@ class MainContent extends React.Component{
 
     }
     componentDidUpdate = async (prevProps) => {
-        console.log("Tentando Atualizar")
         if ((this.props.favorites !== prevProps.favorites) && (this.props.favorites !== prevProps.favorites.lenght)) {
             await this.setState({...this.state, favorites: this.props.favorites});
-            console.log("Atualizou:",this.props.favorites)
         }
     }
     handleSwitch = (semester) => {

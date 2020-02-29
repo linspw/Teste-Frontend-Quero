@@ -30,11 +30,13 @@ class Modal extends React.Component{
             chartList: []
         }
     }
+    /*Checa se há atualização nos parametros de fora da classe*/
     componentDidUpdate = async (prevProps) => {
         if (this.props.Modal !== prevProps.Modal) {
             await this.setState({...this.state, Modal: this.props.Modal});
         }
     }
+    /*Método chamado no momento da construção do Componente Modal*/
     componentDidMount = async () => {
         let array = await this.handleRequest();
         let cities, courses;
@@ -46,32 +48,29 @@ class Modal extends React.Component{
         }
         await this.setState({...this.state, cities, courses, form:{...this.state.form, city:cities[0], course:courses[0]}, data: array});
     }
+    /*Filtros Para aplicar no array de dados da Oferta*/ 
     applyFilter = (array) =>{
         array = array.filter((e)=>{
             if(!((e.campus.city === this.state.form.city) || (this.state.form.city === null))){
-                console.log("1º")
                 return false;
             }
             if(!((e.course.name === this.state.form.course) || (this.state.form.course === null))){
-                console.log("2º")
                 return false;
             }
             if(!(e.price_with_discount <= this.state.form.Range)){
-                console.log("3º")
                 return false;
             }
             if(!this.state.form.Type.EaD && e.course.kind === "EaD"){
-                console.log("4º")
                 return false;
             }
             if(!this.state.form.Type.Presencial && e.course.kind === "Presencial"){
-                console.log("5º")
                 return false;
             }
             return e;
         })
         return array;
     }
+    /*Função Para sortear O array com os dados da Oferta*/
     applySort = (array) =>{
         array = array.slice(0);
         switch (this.state.form.sort){
@@ -87,6 +86,7 @@ class Modal extends React.Component{
                 return array;
         }
     }
+    /*Função para manipular as requests na API*/
     handleRequest = async () =>{
         let result = false;
         await axios({method: 'get', url: 'http://localhost:5000/', responseType: 'json', timeout: 10000}).then(async (response)=>{
@@ -96,6 +96,7 @@ class Modal extends React.Component{
         }).catch((error)=>{console.log("Error:", error)})
         return result;
     }
+    /*Função para manipular o status do modal, dentro dela há uma chamada para mudar o Estado do mondal no Redux*/
     handleModalStatus = () => {
         this.state.toogleStatusModal(!this.state.Modal.status);
     }
@@ -103,8 +104,8 @@ class Modal extends React.Component{
         e.preventDefault();
         await this.state.addOffersFavorite(this.state.chartList)
         await this.handleModalStatus(!this.state.Modal.status);
-        //console.log(e.target.elements);
     }
+    /*Funções Manipuladoras dos Inputs, essas funções alteram o estado da Aplicação*/
     handleRangeInput = (Range) =>{
         this.setState({...this.state, form:{...this.state.form, Range}});
         this.changeResult()
@@ -129,6 +130,7 @@ class Modal extends React.Component{
         this.setState({...this.state, form:{...this.state.form, Type:{...this.state.form.Type, Presencial: e}}})
         this.changeResult()
     }
+    /*Função para adicionar na lista a oferta escolhida*/
     toogleChart = (e, data) =>{
         let index = this.state.chartList.indexOf(data);
         (index>=0)?this.state.chartList.splice(index, 1):this.state.chartList.push(data);
@@ -143,10 +145,9 @@ class Modal extends React.Component{
         await this.setState({...this.state, data: array, chartList: []})
     }
     render(){
-            return (
-                <>
-                <div className="modal">
-                    <div className="modal__opacity">
+        return (      
+            <div className="modal">
+                <div className="modal__opacity">
                     <form className="modal__wrapper">
                         <button className="modal__button--close" onClick={()=>this.handleModalStatus()}><FontAwesomeIcon icon={faTimes}/></button>
                         <fieldset className="modal__fieldset--title">
@@ -241,9 +242,8 @@ class Modal extends React.Component{
                             <Button color="primary-yellow" onClick={this.handleSubmit} disabled={this.state.chartList.length>0?false:true} value="send">Adicionar bolsa(s)</Button>
                         </fieldset>
                     </form>
-                    </div>
                 </div>
-            </>
+            </div>
             );
     }
 }

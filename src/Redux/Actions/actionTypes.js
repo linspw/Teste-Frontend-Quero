@@ -7,3 +7,5 @@ export const ADD_OFFERS_FAVORITE = 'ADD_OFFERS_FAVORITE';
 export const SHOW_OFFERS_FAVORITE = 'SHOW_OFFERS_FAVORITE';
 
 export const REMOVE_OFFERS_FAVORITE = 'REMOVE_OFFERS_FAVORITE';
+
+/*Exportando os tipos de ação*/

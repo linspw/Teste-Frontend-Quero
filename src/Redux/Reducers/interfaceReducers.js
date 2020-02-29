@@ -6,6 +6,8 @@ const designInitialStatus = {
     }
 }
 
+/*Reducer que retorna um estado puro para o Redux Store*/
+
 function InterfaceReducer (state = designInitialStatus, action){
     switch (action.type){
         case SHOW_MODAL_STATUS:
